@@ -1,0 +1,8 @@
+package com.example.HotelRoom.model.dto;
+
+
+public class RoomRequest {
+
+   
+    private String roomNumber;
+}
