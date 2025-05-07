@@ -1,4 +1,9 @@
-package com.example.HotelRoom.model.entity;
-
-public class Guest {
-}
+//package com.example.HotelRoom.model.entity;
+//
+//import jakarta.persistence.Entity;
+//import lombok.Data;
+//
+//@Entity
+//@Data
+//public class Guest {
+//}

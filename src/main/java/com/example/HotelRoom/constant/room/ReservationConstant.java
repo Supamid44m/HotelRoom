@@ -1,6 +1,6 @@
 package com.example.HotelRoom.constant.room;
 
-public class Reservation {
+public class ReservationConstant {
 
     public enum Status {
         BOOKED,

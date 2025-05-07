@@ -1,4 +1,10 @@
 package com.example.HotelRoom.model.entity;
 
-public class Billing {
-}
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+//@Entity
+//@Data
+//public class Billing {
+//}
