@@ -13,6 +13,6 @@ public interface RoomMapper extends GenericMapper<Room, RoomInfoDto> {
     RoomInfoDto toDto(Room room);
 
 
-    @BeanMapping
-    Room partialUpdate(RoomInfoDto roomInfoDto, @MappingTarget Room room);
+//    @BeanMapping
+//    Room partialUpdate(RoomInfoDto roomInfoDto, @MappingTarget Room room);
 }

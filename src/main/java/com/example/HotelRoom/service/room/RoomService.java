@@ -4,6 +4,7 @@ package com.example.HotelRoom.service.room;
 import com.example.HotelRoom.constant.room.ReservationConstant;
 import com.example.HotelRoom.constant.room.RoomStatusEnum;
 import com.example.HotelRoom.model.dto.RoomInfoDto;
+import com.example.HotelRoom.model.dto.TenantInfoDto;
 import com.example.HotelRoom.model.entity.Reservation;
 import com.example.HotelRoom.model.entity.Room;
 import com.example.HotelRoom.model.entity.RoomType;
@@ -55,54 +56,12 @@ public class RoomService {
 
     }
 
-    public void reserved(RoomReservationReq req) {
+    public ResponseEntity<TenantInfoDto> createContract() {
+        try {
 
-        var roo1 = roomRepository.findById(req.getRoomId());
-
-        Optional<Room> r1 = roomRepository.findById(req.getRoomId());
-        Room room2 = r1.get();
-
-
-        Room room = roomRepository.findById(req.getRoomId())
-                .orElseThrow(() -> new RuntimeException("Room not found"));
-        room.setStatus(RoomStatusEnum.RESERVED);
-        roomRepository.save(room);
-
-        Reservation reservation = new Reservation();
-
-        reservation.setStatus(ReservationConstant.Status.BOOKED);
-
-        if (!ReservationConstant.Type.MONTH.equals(req.getType())) {
-            reservation.setCheckInDate(req.getCheckInDate());
-            reservation.setCheckOutDate(req.getCheckOutDate());
+//            return ResponseEntity.ok("");
+        } catch (Exception error) {
+            throw new RuntimeException(error);
         }
-        reservation.setType(req.getType());
-        reservation.setRoom(room);
-        reservationRepository.save(reservation);
-    }
-
-    public void cancelReserved(Long roomId) {
-        Room room = roomRepository.findById(roomId)
-                .orElseThrow(() -> new RuntimeException("Room not found"));
-
-        Reservation reservation = reservationRepository
-                .findTopByRoomIdAndStatusOrderByIdDesc(roomId, ReservationConstant.Status.BOOKED)
-                .orElseThrow(() -> new RuntimeException("No active reservation found for this room"));
-
-
-        reservation.setStatus(ReservationConstant.Status.CANCELLED);
-        reservationRepository.save(reservation);
-
-        room.setStatus(RoomStatusEnum.EMPTY);
-        roomRepository.save(room);
-    }
-
-
-    public void checkIn(Long roomId) {
-
-    }
-
-    public String checkOut(String id) {
-        return "check out";
     }
 }
