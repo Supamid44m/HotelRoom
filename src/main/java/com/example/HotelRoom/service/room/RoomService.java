@@ -56,12 +56,12 @@ public class RoomService {
 
     }
 
-    public ResponseEntity<TenantInfoDto> createContract() {
-        try {
-
-//            return ResponseEntity.ok("");
-        } catch (Exception error) {
-            throw new RuntimeException(error);
-        }
-    }
+//    public ResponseEntity<TenantInfoDto> createContract() {
+//        try {
+//
+////            return ResponseEntity.ok("");
+//        } catch (Exception error) {
+//            throw new RuntimeException(error);
+//        }
+//    }
 }
