@@ -7,11 +7,14 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
 
+import java.util.List;
+
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface RoomMapper extends GenericMapper<Room, RoomInfoDto> {
 
     RoomInfoDto toDto(Room room);
 
+    List<RoomInfoDto> toDtoList(List<Room> room);
 
 //    @BeanMapping
 //    Room partialUpdate(RoomInfoDto roomInfoDto, @MappingTarget Room room);

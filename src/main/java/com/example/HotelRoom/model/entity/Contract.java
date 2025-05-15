@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 
@@ -17,7 +18,17 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long roomId;
+
+    private Long tenantId;
+
     private LocalDate startDate;
     private LocalDate endDate;
+
+    private String status;
+
+    private LocalDate createDate;
+    private LocalDate updateDate;
+
 
 }

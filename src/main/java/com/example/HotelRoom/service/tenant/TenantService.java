@@ -32,11 +32,9 @@ public class TenantService {
             tenant.setPhone(request.getPhone());
             tenant.setIdCard(request.getIdCard());
 
-
             this.tenantRepository.save(tenant);
 
             TenantInfoDto response = this.tenantMapper.toDto(tenant);
-
 
             return ResponseEntity.ok(response);
         } catch (Exception e) {
