@@ -46,4 +46,9 @@ public class RoomController {
     public ResponseEntity<String> cancelReserved(@PathVariable String id) {
         return ResponseEntity.ok("s");
     }
+
+    @GetMapping("{id}/contract")
+    public ResponseEntity<ContractInfoDto> getContract(@PathVariable String id) {
+        return roomService.getContract(id);
+    }
 }

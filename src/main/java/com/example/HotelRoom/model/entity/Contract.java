@@ -1,10 +1,7 @@
 package com.example.HotelRoom.model.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.cglib.core.Local;
 
@@ -18,9 +15,16 @@ public class Contract {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long roomId;
 
-    private Long tenantId;
+    @OneToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
+//    private Tenant tenant;
+
+    @ManyToOne
+    @JoinColumn(name = "tenant_id")
+    private Tenant tenant;
 
     private LocalDate startDate;
     private LocalDate endDate;
